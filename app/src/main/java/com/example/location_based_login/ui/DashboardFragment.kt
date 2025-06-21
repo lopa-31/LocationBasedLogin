@@ -10,6 +10,7 @@ import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.location_based_login.R
 import com.example.location_based_login.service.LocationService
@@ -37,9 +38,12 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         }
 
         viewModel.navigationEvent.observe(viewLifecycleOwner) { event ->
+            val navOptions = NavOptions.Builder()
+                .setPopUpTo(R.id.dashboardFragment, true)
+                .build()
             if (event is DashboardViewModel.NavigationEvent.GoToLogin) {
                 stopLocationService()
-                findNavController().navigate(R.id.action_dashboardFragment_to_loginFragment)
+                findNavController().navigate(R.id.action_dashboardFragment_to_loginFragment, null, navOptions)
             }
         }
     }
