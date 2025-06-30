@@ -24,7 +24,7 @@ This is a native Android application that automatically manages user login statu
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/LocationBasedLogin.git
+    git clone https://github.com/lopa-31/LocationBasedLogin.git
     ```
 2.  **Open in Android Studio:**
     - Open Android Studio.
